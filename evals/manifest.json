@@ -1,0 +1,21 @@
+{
+  "schema": "rfq-eval-manifest",
+  "version": 1,
+  "notes": [
+    "Only synthetic or founder-approved-anonymized fixtures belong here.",
+    "Never commit real customer/vendor identifiers, prices or discounts.",
+    "Each fixture: an input document + an expert-reviewed expected ground truth."
+  ],
+  "fixtures": [
+    {
+      "id": "SYN-001",
+      "kind": "synthetic",
+      "product_family": "pressure_transmitter",
+      "model_series_hint": "EJA430E",
+      "input": "fixtures/SYN-001/rfq.md",
+      "expected": "expected/SYN-001.json",
+      "reviewed_by": "pending-founder-review",
+      "description": "Synthetic single-line gauge pressure transmitter RFQ with one deliberately missing critical field (wetted_material) and one hazardous-area conditional trigger."
+    }
+  ]
+}

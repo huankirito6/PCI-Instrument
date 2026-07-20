@@ -1,0 +1,12 @@
+Manufacturer,ProductFamily,ModelSeries,PartNumber,Description,AttributeKey,AttributeValue,Unit,SourceDocument,SourcePage
+Yokogawa,pressure_transmitter,EJA430E,SYN-EJA430E-A,SYNTHETIC gauge pressure transmitter placeholder,measurement_type,gauge_pressure,,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,pressure_transmitter,EJA430E,SYN-EJA430E-A,SYNTHETIC gauge pressure transmitter placeholder,measurement_range_max,10,MPa,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,pressure_transmitter,EJA430E,SYN-EJA430E-A,SYNTHETIC gauge pressure transmitter placeholder,output_signal,4-20mA_HART,,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,pressure_transmitter,EJA430E,SYN-EJA430E-A,SYNTHETIC gauge pressure transmitter placeholder,wetted_material,316L SST,,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,pressure_transmitter,EJA530E,SYN-EJA530E-A,SYNTHETIC gauge pressure transmitter placeholder,measurement_type,gauge_pressure,,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,pressure_transmitter,EJA530E,SYN-EJA530E-A,SYNTHETIC gauge pressure transmitter placeholder,measurement_range_max,2,MPa,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,pressure_transmitter,EJA530E,SYN-EJA530E-A,SYNTHETIC gauge pressure transmitter placeholder,output_signal,4-20mA_HART,,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,pressure_transmitter,EJA110E,SYN-EJA110E-A,SYNTHETIC differential pressure transmitter placeholder,measurement_type,differential_pressure,,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,differential_pressure_transmitter,EJA110E,SYN-EJA110E-A,SYNTHETIC differential pressure transmitter placeholder,output_signal,4-20mA_HART,,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,differential_pressure_transmitter,EJAC80E,SYN-EJAC80E-A,SYNTHETIC multivariable placeholder,measurement_type,differential_pressure,,SYNTHETIC-PLACEHOLDER,n/a
+Yokogawa,differential_pressure_transmitter,EJAC80E,SYN-EJAC80E-A,SYNTHETIC multivariable placeholder,output_signal,4-20mA_HART,,SYNTHETIC-PLACEHOLDER,n/a

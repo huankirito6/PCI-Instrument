@@ -1,0 +1,125 @@
+{
+  "fixture_id": "SYN-001",
+  "kind": "synthetic",
+  "reviewed_by": "pending-founder-review",
+  "source_document": "fixtures/SYN-001/rfq.md",
+  "requirements": [
+    {
+      "field_key": "product_family",
+      "normalized_value": "pressure_transmitter",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "Gauge pressure transmitter"}
+    },
+    {
+      "field_key": "measurement_type",
+      "normalized_value": "gauge_pressure",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "Gauge pressure transmitter"}
+    },
+    {
+      "field_key": "measurement_range_min",
+      "normalized_value": 0,
+      "unit": "MPa",
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "0 - 1 MPa"}
+    },
+    {
+      "field_key": "measurement_range_max",
+      "normalized_value": 1,
+      "unit": "MPa",
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "0 - 1 MPa"}
+    },
+    {
+      "field_key": "measurement_range_unit",
+      "normalized_value": "MPa",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "0 - 1 MPa"}
+    },
+    {
+      "field_key": "output_signal",
+      "normalized_value": "4-20mA_HART",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "4-20 mA with HART"}
+    },
+    {
+      "field_key": "power_supply",
+      "normalized_value": "24 VDC",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "24 VDC"}
+    },
+    {
+      "field_key": "process_connection",
+      "normalized_value": "1/2 NPT female",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "1/2 NPT female"}
+    },
+    {
+      "field_key": "process_temperature_max",
+      "normalized_value": 120,
+      "unit": "degC",
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "up to 120 degC"}
+    },
+    {
+      "field_key": "hazardous_area_requirement",
+      "normalized_value": "Ex (generic, not specified)",
+      "unit": null,
+      "status": "unverified",
+      "source": {"document": "rfq.md", "quote": "Required (Ex)"}
+    },
+    {
+      "field_key": "display_requirement",
+      "normalized_value": "LCD indicator",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "LCD indicator"}
+    },
+    {
+      "field_key": "quantity",
+      "normalized_value": 2,
+      "unit": "pcs",
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "2 pcs"}
+    },
+    {
+      "field_key": "wetted_material",
+      "normalized_value": null,
+      "unit": null,
+      "status": "missing",
+      "source": null
+    }
+  ],
+  "expected_missing_fields": [
+    {
+      "field_key": "wetted_material",
+      "reason": "Required to select the process-wetted parts option; buyer wrote 'to be confirmed'."
+    },
+    {
+      "field_key": "certification",
+      "reason": "Hazardous-area requirement is present but the exact certification/protection class (e.g. Ex ia / Ex d, ATEX/IECEx) is not specified."
+    }
+  ],
+  "expected_notes": [
+    "hazardous_area_requirement must stay unverified: 'Ex' is generic and must not be normalized to a specific protection class.",
+    "measurement_type must be gauge_pressure, not differential.",
+    "output_signal HART is explicit in text, so 4-20mA_HART is valid; do not infer HART when only 4-20mA is written.",
+    "model_series must remain a candidate proposal (EJA430E is a likely family) subject to catalog coverage and human approval; it is NOT asserted as verified here."
+  ],
+  "candidate_expectations": {
+    "must_not_assert_verified_model": true,
+    "hard_constraints_that_must_hold": [
+      "product_family = pressure_transmitter",
+      "measurement_type = gauge_pressure",
+      "range covers 0..1 MPa",
+      "output supports 4-20mA HART"
+    ],
+    "unknown_fields_must_not_count_as_pass": ["wetted_material", "certification"]
+  }
+}
