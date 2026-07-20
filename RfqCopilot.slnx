@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RfqCopilot.Domain/RfqCopilot.Domain.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RfqCopilot.Domain.Tests/RfqCopilot.Domain.Tests.csproj" />
+  </Folder>
+</Solution>

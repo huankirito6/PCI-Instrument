@@ -1,0 +1,23 @@
+# Normalize line endings — commit LF, check out native.
+* text=auto
+
+# Explicit text files
+*.cs        text
+*.csproj    text
+*.slnx      text
+*.props     text
+*.targets   text
+*.json      text
+*.yaml      text
+*.yml       text
+*.md        text
+*.csv       text
+*.py        text
+*.sh        text eol=lf
+
+# Binary files (never diff/normalize)
+*.pdf       binary
+*.xlsx      binary
+*.png       binary
+*.jpg       binary
+*.webp      binary
