@@ -1,0 +1,130 @@
+{
+  "fixture_id": "SYN-003",
+  "kind": "synthetic",
+  "reviewed_by": "pending-founder-review",
+  "source_document": "fixtures/SYN-003/rfq.md",
+  "requirements": [
+    {
+      "field_key": "product_family",
+      "normalized_value": "pressure_transmitter",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "Gauge pressure transmitter with remote seal"}
+    },
+    {
+      "field_key": "measurement_type",
+      "normalized_value": "gauge_pressure",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "Gauge pressure transmitter"}
+    },
+    {
+      "field_key": "measurement_range_min",
+      "normalized_value": 0,
+      "unit": "kPa",
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "0 - 500 kPa"}
+    },
+    {
+      "field_key": "measurement_range_max",
+      "normalized_value": 500,
+      "unit": "kPa",
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "0 - 500 kPa"}
+    },
+    {
+      "field_key": "measurement_range_unit",
+      "normalized_value": "kPa",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "0 - 500 kPa"}
+    },
+    {
+      "field_key": "output_signal",
+      "normalized_value": "4-20mA_HART",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "4-20 mA HART"}
+    },
+    {
+      "field_key": "power_supply",
+      "normalized_value": "24 VDC",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "24 VDC"}
+    },
+    {
+      "field_key": "remote_seal",
+      "normalized_value": true,
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "Remote seal | Required (flush diaphragm)"}
+    },
+    {
+      "field_key": "wetted_material",
+      "normalized_value": "Hastelloy C-276",
+      "unit": null,
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "Hastelloy C-276"}
+    },
+    {
+      "field_key": "quantity",
+      "normalized_value": 1,
+      "unit": "pcs",
+      "status": "extracted",
+      "source": {"document": "rfq.md", "quote": "1 pc"}
+    },
+    {
+      "field_key": "diaphragm_or_seal_type",
+      "normalized_value": "flush diaphragm (partial)",
+      "unit": null,
+      "status": "unverified",
+      "source": {"document": "rfq.md", "quote": "Required (flush diaphragm)"}
+    },
+    {
+      "field_key": "process_temperature_max",
+      "normalized_value": null,
+      "unit": null,
+      "status": "missing",
+      "source": null
+    },
+    {
+      "field_key": "manifold_and_accessories",
+      "normalized_value": null,
+      "unit": null,
+      "status": "missing",
+      "source": null
+    }
+  ],
+  "expected_missing_fields": [
+    {
+      "field_key": "process_temperature_max",
+      "reason": "remote_seal = true triggers the remote-seal conditional requiring process temperature; RFQ says temperature to be advised."
+    },
+    {
+      "field_key": "manifold_and_accessories",
+      "reason": "remote_seal = true requires accessory/capillary details; capillary length not given."
+    },
+    {
+      "field_key": "hazardous_area_requirement",
+      "reason": "Not stated; must be clarified rather than assumed."
+    }
+  ],
+  "expected_notes": [
+    "remote_seal = true must trigger the remote-seal conditional (seal type, process temperature, accessories).",
+    "diaphragm_or_seal_type is only partially specified (flush diaphragm) and stays unverified until confirmed.",
+    "process_temperature_max and manifold_and_accessories must be missing (null), not guessed.",
+    "model_series (EJA530E family) remains a candidate proposal pending catalog coverage and human approval."
+  ],
+  "candidate_expectations": {
+    "must_not_assert_verified_model": true,
+    "hard_constraints_that_must_hold": [
+      "product_family = pressure_transmitter",
+      "measurement_type = gauge_pressure",
+      "range covers 0..500 kPa",
+      "remote seal capability required",
+      "wetted/seal material compatible with Hastelloy C-276 requirement"
+    ],
+    "unknown_fields_must_not_count_as_pass": ["process_temperature_max", "manifold_and_accessories", "hazardous_area_requirement"]
+  }
+}

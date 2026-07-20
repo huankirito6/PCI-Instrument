@@ -16,6 +16,26 @@
       "expected": "expected/SYN-001.json",
       "reviewed_by": "pending-founder-review",
       "description": "Synthetic single-line gauge pressure transmitter RFQ with one deliberately missing critical field (wetted_material) and one hazardous-area conditional trigger."
+    },
+    {
+      "id": "SYN-002",
+      "kind": "synthetic",
+      "product_family": "differential_pressure_transmitter",
+      "model_series_hint": "EJA110E",
+      "input": "fixtures/SYN-002/rfq.md",
+      "expected": "expected/SYN-002.json",
+      "reviewed_by": "pending-founder-review",
+      "description": "Synthetic differential pressure transmitter RFQ that triggers the DP static-pressure conditional; static_pressure_or_overpressure is deliberately missing."
+    },
+    {
+      "id": "SYN-003",
+      "kind": "synthetic",
+      "product_family": "pressure_transmitter",
+      "model_series_hint": "EJA530E",
+      "input": "fixtures/SYN-003/rfq.md",
+      "expected": "expected/SYN-003.json",
+      "reviewed_by": "pending-founder-review",
+      "description": "Synthetic gauge pressure transmitter with remote seal that triggers the remote-seal conditional; process temperature and accessories deliberately missing."
     }
   ]
 }
