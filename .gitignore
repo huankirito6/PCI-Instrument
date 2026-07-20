@@ -1,0 +1,32 @@
+# .NET build output
+[Bb]in/
+[Oo]bj/
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Local secrets and environment
+.env
+.env.*
+!.env.example
+
+# Local data and generated exports (sensitive)
+/data/
+/storage/
+/exports/
+*.local.json
+
+# Real RFQ / quotation fixtures (never commit sensitive samples)
+/private-samples/
+/samples-raw/
+
+# Test output
+TestResults/
+coverage/
+
+# OS files
+.DS_Store
+Thumbs.db

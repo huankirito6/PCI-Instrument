@@ -1,0 +1,366 @@
+schema: pressure-dp-requirements
+version: 0.1
+status: draft
+owner: founder-domain-owner
+manufacturer_scope:
+  - Yokogawa
+product_series_scope:
+  - EJA110E
+  - EJA430E
+  - EJA530E
+  - EJAC80E
+notes:
+  - This is a Phase 0 field inventory, not an authoritative order-code rule set.
+  - Every model/order-code rule must be backed by an approved catalog/GS source before implementation.
+  - Missing values must remain null/missing/unknown/unverified; never infer critical values silently.
+statuses:
+  - provided
+  - extracted
+  - missing
+  - unknown
+  - unverified
+  - approved
+  - rejected
+  - conflicting
+fields:
+  - key: product_family
+    label: Product family
+    type: enum
+    required: true
+    critical: true
+    source_required: true
+    allowed_values:
+      - pressure_transmitter
+      - differential_pressure_transmitter
+    notes: Must be confirmed from RFQ/application; do not infer from a generic word such as sensor.
+
+  - key: model_series
+    label: Model series
+    type: string
+    required: true
+    critical: true
+    source_required: true
+    notes: Candidate only until catalog/rule coverage and human approval are present.
+
+  - key: measurement_type
+    label: Measurement type
+    type: enum
+    required: true
+    critical: true
+    source_required: true
+    allowed_values:
+      - gauge_pressure
+      - absolute_pressure
+      - differential_pressure
+      - unknown
+
+  - key: medium_or_application
+    label: Medium/application
+    type: string
+    required: true
+    critical: true
+    source_required: true
+
+  - key: installation_location
+    label: Installation location
+    type: string
+    required: true
+    critical: false
+    source_required: true
+
+  - key: measurement_range_min
+    label: Measurement range minimum
+    type: decimal
+    required: true
+    critical: true
+    source_required: true
+
+  - key: measurement_range_max
+    label: Measurement range maximum
+    type: decimal
+    required: true
+    critical: true
+    source_required: true
+
+  - key: measurement_range_unit
+    label: Measurement range unit
+    type: engineering_unit
+    required: true
+    critical: true
+    source_required: true
+
+  - key: range_reference
+    label: Range reference
+    type: enum
+    required: true
+    critical: true
+    source_required: true
+    allowed_values:
+      - gauge
+      - absolute
+      - differential
+      - unknown
+
+  - key: process_pressure_min
+    label: Process pressure minimum
+    type: decimal
+    required: false
+    critical: true
+    source_required: true
+
+  - key: process_pressure_max
+    label: Process pressure maximum
+    type: decimal
+    required: false
+    critical: true
+    source_required: true
+
+  - key: process_pressure_unit
+    label: Process pressure unit
+    type: engineering_unit
+    required: false
+    critical: true
+    source_required: true
+
+  - key: static_pressure_or_overpressure
+    label: Static pressure/overpressure
+    type: decimal_or_text
+    required: false
+    critical: true
+    source_required: true
+
+  - key: process_temperature_min
+    label: Process temperature minimum
+    type: decimal
+    required: false
+    critical: true
+    source_required: true
+
+  - key: process_temperature_max
+    label: Process temperature maximum
+    type: decimal
+    required: false
+    critical: true
+    source_required: true
+
+  - key: process_temperature_unit
+    label: Process temperature unit
+    type: engineering_unit
+    required: false
+    critical: true
+    source_required: true
+
+  - key: ambient_temperature_min
+    label: Ambient temperature minimum
+    type: decimal
+    required: false
+    critical: false
+    source_required: true
+
+  - key: ambient_temperature_max
+    label: Ambient temperature maximum
+    type: decimal
+    required: false
+    critical: false
+    source_required: true
+
+  - key: output_signal
+    label: Output signal
+    type: enum_or_text
+    required: true
+    critical: true
+    source_required: true
+    examples:
+      - 4-20mA
+      - 4-20mA_HART
+      - digital_protocol
+
+  - key: communication_protocol
+    label: Communication protocol
+    type: enum_or_text
+    required: false
+    critical: true
+    source_required: true
+
+  - key: power_supply
+    label: Power supply
+    type: string
+    required: true
+    critical: true
+    source_required: true
+
+  - key: process_connection
+    label: Process connection
+    type: string
+    required: true
+    critical: true
+    source_required: true
+
+  - key: electrical_connection
+    label: Electrical connection
+    type: string
+    required: false
+    critical: true
+    source_required: true
+
+  - key: wetted_material
+    label: Wetted material
+    type: string
+    required: true
+    critical: true
+    source_required: true
+
+  - key: diaphragm_or_seal_type
+    label: Diaphragm/seal type
+    type: string
+    required: false
+    critical: true
+    source_required: true
+
+  - key: remote_seal
+    label: Remote seal/capillary requirement
+    type: boolean_or_unknown
+    required: false
+    critical: true
+    source_required: true
+
+  - key: hazardous_area_requirement
+    label: Hazardous-area requirement
+    type: string
+    required: true
+    critical: true
+    source_required: true
+
+  - key: certification
+    label: Certification
+    type: string
+    required: false
+    critical: true
+    source_required: true
+
+  - key: display_requirement
+    label: Display requirement
+    type: string
+    required: false
+    critical: false
+    source_required: true
+
+  - key: ingress_protection
+    label: Ingress protection
+    type: string
+    required: false
+    critical: false
+    source_required: true
+
+  - key: mounting_requirement
+    label: Mounting requirement
+    type: string
+    required: false
+    critical: false
+    source_required: true
+
+  - key: manifold_and_accessories
+    label: Manifold/accessories
+    type: list
+    required: false
+    critical: true
+    source_required: true
+
+  - key: calibration_certificate_requirement
+    label: Calibration certificate requirement
+    type: string
+    required: false
+    critical: false
+    source_required: true
+
+  - key: quantity
+    label: Quantity
+    type: integer
+    required: true
+    critical: true
+    source_required: true
+
+conditional_requirements:
+  - id: hazardous-area-certification
+    when:
+      field: hazardous_area_requirement
+      is_present: true
+    requires:
+      - certification
+    reason: Hazardous-area selection must be supported by an explicit certification requirement/source.
+
+  - id: remote-seal-details
+    when:
+      field: remote_seal
+      equals: true
+    requires:
+      - diaphragm_or_seal_type
+      - process_temperature_max
+      - manifold_and_accessories
+    reason: Remote-seal configurations require seal/process/accessory details.
+
+  - id: differential-pressure-static-pressure
+    when:
+      field: measurement_type
+      equals: differential_pressure
+    requires:
+      - static_pressure_or_overpressure
+    reason: DP selection requires static/overpressure information.
+
+commercial_fields:
+  - key: customer_or_end_user
+    required_for_quotation: true
+    critical: true
+    source_required: true
+  - key: quotation_reference
+    required_for_quotation: true
+    critical: true
+    source_required: false
+  - key: quotation_date
+    required_for_quotation: true
+    critical: true
+    source_required: false
+  - key: quotation_validity
+    required_for_quotation: true
+    critical: true
+    source_required: true
+  - key: vendor_cost_price
+    required_for_quotation: true
+    critical: true
+    source_required: true
+    human_approval_required: true
+  - key: pricing_factor
+    required_for_quotation: true
+    critical: true
+    source_required: false
+    human_approval_required: true
+  - key: selling_price
+    required_for_quotation: true
+    critical: true
+    source_required: false
+    human_approval_required: true
+  - key: vat_rate
+    required_for_quotation: true
+    critical: true
+    source_required: true
+    human_approval_required: true
+  - key: delivery_time
+    required_for_quotation: true
+    critical: true
+    source_required: true
+    human_approval_required: true
+  - key: payment_terms
+    required_for_quotation: true
+    critical: true
+    source_required: true
+    human_approval_required: true
+  - key: warranty
+    required_for_quotation: true
+    critical: true
+    source_required: true
+    human_approval_required: true
+  - key: documents
+    required_for_quotation: false
+    critical: true
+    source_required: true
+    human_approval_required: true
